@@ -14,6 +14,7 @@ namespace SpaceShipWarBa.Inputs
             GameInput gameInput = new GameInput();
             
             gameInput.Player.Movement.performed += HandleOnMovement;
+            gameInput.Player.Movement.canceled += HandleOnMovement;
             
             gameInput.Enable();
         }
