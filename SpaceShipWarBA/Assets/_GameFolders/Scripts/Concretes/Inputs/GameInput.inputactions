@@ -1,0 +1,190 @@
+{
+    "name": "GameInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "a7193839-655b-455a-85e9-f24e60c74e0a",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "2c53cd48-f193-44df-a6cc-6c5a072ac3ed",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "0af09186-4487-47f4-89e9-da3d61fa0ce9",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "2610562f-4a39-4f2e-983f-654b1ac409a1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "0c94496e-e284-41f5-a6e1-554d0e443c11",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "ade24300-89f6-4d91-8ade-4ec1d898f815",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "bbe8b298-4aa1-4148-a3d7-8d966fd13f25",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Ui",
+            "id": "cc7b73e8-46f6-4a84-a0ef-a65fa20dafe2",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "144a99e4-edea-431c-b13d-8e09f2570807",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8a89f987-68ae-40e6-8a45-0ccc0ed6864f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PlayerOnFoot",
+            "id": "a6314aa6-9753-4d74-8d36-5ab1efe57bfb",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "6e6883c3-cd69-429c-97be-1fbb336fd02e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a4077168-6fca-4f80-9546-69b40be6493f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PlayerOnCar",
+            "id": "aca18ae4-c361-4fe5-96b6-e628840543e8",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "4cb4ac87-6ba5-4013-8291-1d59a7c03ee0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "00043534-6b16-4bd9-aeb8-e096c8b1b7d7",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PlayerOnPlane",
+            "id": "8802e1df-9417-4d67-bd16-318a0b3b2bf4",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "c951d2d9-ff3d-46dd-972a-5cda71b8ea65",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2c9f9978-9709-474f-8f64-b93e9edd3ec2",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
