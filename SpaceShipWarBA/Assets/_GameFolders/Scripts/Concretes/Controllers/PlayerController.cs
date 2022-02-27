@@ -1,9 +1,11 @@
 using SpaceShipWarBa.Abstracts.Animations;
+using SpaceShipWarBa.Abstracts.Combats;
 using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Inputs;
 using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Animations;
+using SpaceShipWarBa.Combats;
 using SpaceShipWarBa.Inputs;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
@@ -17,6 +19,7 @@ namespace SpaceShipWarBa.Controllers
         
         IMover _mover;
         IAnimation _animation;
+        IHealth _health;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
