@@ -1,0 +1,9 @@
+﻿
+namespace SpaceShipWarBa.Abstracts.DataContainers
+{
+    public interface IPlayerStats
+    {
+        float MoveSpeed { get; }
+        float HorizontalBorder { get; }
+    }
+}

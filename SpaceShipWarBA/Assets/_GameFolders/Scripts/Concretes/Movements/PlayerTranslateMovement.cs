@@ -1,18 +1,20 @@
-﻿using SpaceShipWarBa.Abstracts.Movements;
-using SpaceShipWarBa.Controllers;
+﻿using SpaceShipWarBa.Abstracts.Controllers;
+using SpaceShipWarBa.Abstracts.Movements;
 using UnityEngine;
 
 namespace SpaceShipWarBa.Movements
 {
     public class PlayerTranslateMovement : IMover
     {
-        readonly PlayerController _playerController;
+        readonly IPlayerController _playerController;
+        readonly Transform _transform;
         Vector2 _direction;
-        float _moveSpeed = 10f;
+        
 
-        public PlayerTranslateMovement(PlayerController playerController)
+        public PlayerTranslateMovement(IPlayerController playerController)
         {
             _playerController = playerController;
+            _transform = _playerController.transform;
         }
 
         public void Tick()
@@ -22,7 +24,19 @@ namespace SpaceShipWarBa.Movements
 
         public void FixedTick()
         {
-            _playerController.transform.Translate(_direction * (Time.deltaTime * _playerController.Stats.MoveSpeed));
+            //_playerController.GetComponent<Transform>().Translate(_direction * (Time.deltaTime * _playerController.Stats.MoveSpeed));
+            //_playerController.transform.Translate(_direction * (Time.deltaTime * _playerController.Stats.MoveSpeed));
+            _transform.Translate(_direction * Time.deltaTime * _playerController.Stats.MoveSpeed);
+
+            //Mathf unity matematik class'idir unity developerlar tarafindan yazilmis bir class'tir kopleke matemeakt islmelerini bizim icin hazir yapar
+            //Clamp method'u bizden uc parametre ister birinsi degerin kendisi ikincisi minimum donus degeri ucuncudusu maxsimim donus degeridir min ve max lari gecmesek deger olarak bize degerin kendisini doner eger min veya max'î gecersek bize bu min veya max degerin kendisini doner
+            float xPosition = Mathf.Clamp(
+                _transform.position.x, 
+                -_playerController.Stats.HorizontalBorder,
+                _playerController.Stats.HorizontalBorder
+                );
+
+            _transform.position = new Vector3(xPosition, _transform.position.y, 0f);
         }
     }
 }

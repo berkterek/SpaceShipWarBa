@@ -1,3 +1,5 @@
+using SpaceShipWarBa.Abstracts.Controllers;
+using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Inputs;
 using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Inputs;
@@ -7,13 +9,13 @@ using UnityEngine;
 
 namespace SpaceShipWarBa.Controllers
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IPlayerController
     {
         [SerializeField] PlayerStatsSO _stats;
         IMover _mover;
 
         public IInputReader InputReader { get; private set; }
-        public PlayerStatsSO Stats => _stats;
+        public IPlayerStats Stats => _stats;
 
         void Awake()
         {
@@ -27,6 +29,7 @@ namespace SpaceShipWarBa.Controllers
             InputReader = new NewInputReader();
             //burdaki this anlami bu class'in kendisi demektir
             _mover = new PlayerTranslateMovement(this);
+            
         }
 
         void Update()

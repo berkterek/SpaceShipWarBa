@@ -21,7 +21,8 @@ namespace SpaceShipWarBa.Inputs
 
         void HandleOnMovement(InputAction.CallbackContext context)
         {
-            Direction = context.ReadValue<Vector2>();
+            Direction = context.ReadValue<Vector2>(); //x y
+            //Direction = new Vector3(Direction.x, 0f, Direction.y); //x z deger vermis oluyorum
         }
     }
 }

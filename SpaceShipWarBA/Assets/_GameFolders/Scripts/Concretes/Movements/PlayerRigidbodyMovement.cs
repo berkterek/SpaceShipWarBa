@@ -1,4 +1,5 @@
-﻿using SpaceShipWarBa.Abstracts.Movements;
+﻿using SpaceShipWarBa.Abstracts.Controllers;
+using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Controllers;
 using UnityEngine;
 
@@ -6,15 +7,15 @@ namespace SpaceShipWarBa.Movements
 {
     public class PlayerRigidbodyMovement : IMover
     {
-        readonly PlayerController _playerController;
+        readonly IPlayerController _playerController;
         readonly Rigidbody2D _rigidbody2D;
         
         Vector2 _direction;
         
-        public PlayerRigidbodyMovement(PlayerController playerController)
+        public PlayerRigidbodyMovement(IPlayerController playerController)
         {
             _playerController = playerController;
-            _rigidbody2D = playerController.GetComponent<Rigidbody2D>();
+            _rigidbody2D = playerController.transform.GetComponent<Rigidbody2D>();
         }
         
         public void Tick()
