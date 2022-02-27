@@ -21,7 +21,7 @@ namespace SpaceShipWarBa.Controllers
             
             InputReader = new NewInputReader();
             //burdaki this anlami bu class'in kendisi demektir
-            _mover = new PlayerTransformMovement(this);
+            _mover = new PlayerTranslateMovement(this);
         }
 
         void Update()
@@ -32,7 +32,6 @@ namespace SpaceShipWarBa.Controllers
         void FixedUpdate()
         {
             //yurume islemlerini yapiyoruz fizik
-            //this.transform.Translate(_direction * Time.deltaTime);
             _mover.FixedTick();
         }
 

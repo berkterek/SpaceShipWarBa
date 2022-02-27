@@ -1,15 +1,15 @@
-using SpaceShipWarBa.Abstracts.Movements;
+﻿using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Controllers;
 using UnityEngine;
 
 namespace SpaceShipWarBa.Movements
 {
-    public class PlayerTransformMovement : IMover
+    public class PlayerTranslateMovement : IMover
     {
         readonly PlayerController _playerController;
         Vector2 _direction;
 
-        public PlayerTransformMovement(PlayerController playerController)
+        public PlayerTranslateMovement(PlayerController playerController)
         {
             _playerController = playerController;
         }
@@ -21,8 +21,7 @@ namespace SpaceShipWarBa.Movements
 
         public void FixedTick()
         {
-            //yurutme
-            _playerController.transform.position += (Vector3)_direction * Time.deltaTime;
+            _playerController.transform.Translate(_direction * Time.deltaTime);
         }
     }
 }
