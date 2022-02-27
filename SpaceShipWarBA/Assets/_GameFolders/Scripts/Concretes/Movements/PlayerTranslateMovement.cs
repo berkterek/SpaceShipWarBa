@@ -8,6 +8,7 @@ namespace SpaceShipWarBa.Movements
     {
         readonly PlayerController _playerController;
         Vector2 _direction;
+        float _moveSpeed = 10f;
 
         public PlayerTranslateMovement(PlayerController playerController)
         {
@@ -21,7 +22,7 @@ namespace SpaceShipWarBa.Movements
 
         public void FixedTick()
         {
-            _playerController.transform.Translate(_direction * Time.deltaTime);
+            _playerController.transform.Translate(_direction * (Time.deltaTime * _playerController.Stats.MoveSpeed));
         }
     }
 }
