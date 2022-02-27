@@ -1,4 +1,5 @@
-﻿
+﻿using UnityEngine;
+
 namespace SpaceShipWarBa.Abstracts.DataContainers
 {
     public interface IPlayerStats
@@ -7,5 +8,6 @@ namespace SpaceShipWarBa.Abstracts.DataContainers
         float HorizontalBorder { get; }
         public float VerticalUpBorder { get; }
         public float VerticalDownBorder { get; }
+        Sprite[] Sprites { get; }
     }
 }

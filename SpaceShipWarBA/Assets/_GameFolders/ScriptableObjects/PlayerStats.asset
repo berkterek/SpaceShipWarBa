@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095a0eebd32104e46bb05ac0a6c4fa93, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 009b06e19aa897447a39e0165a3c8fca, type: 3}
+  - {fileID: 21300000, guid: 7f3fb703bad786e42a293b095980443a, type: 3}
+  - {fileID: 21300000, guid: 24f80815880ddff4296521f1e4c7ca67, type: 3}
   _moveSpeed: 6
   _horizontalBorder: 2
+  _verticalUpBorder: 1
+  _verticalDownBorder: -5
