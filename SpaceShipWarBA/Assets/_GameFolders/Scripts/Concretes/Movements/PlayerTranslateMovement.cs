@@ -30,13 +30,20 @@ namespace SpaceShipWarBa.Movements
 
             //Mathf unity matematik class'idir unity developerlar tarafindan yazilmis bir class'tir kopleke matemeakt islmelerini bizim icin hazir yapar
             //Clamp method'u bizden uc parametre ister birinsi degerin kendisi ikincisi minimum donus degeri ucuncudusu maxsimim donus degeridir min ve max lari gecmesek deger olarak bize degerin kendisini doner eger min veya max'î gecersek bize bu min veya max degerin kendisini doner
+            Vector3 transformPosition = _transform.position;
             float xPosition = Mathf.Clamp(
-                _transform.position.x, 
+                transformPosition.x, 
                 -_playerController.Stats.HorizontalBorder,
                 _playerController.Stats.HorizontalBorder
                 );
 
-            _transform.position = new Vector3(xPosition, _transform.position.y, 0f);
+            float yPosition = Mathf.Clamp(
+                transformPosition.y,
+                _playerController.Stats.VerticalDownBorder,
+                _playerController.Stats.VerticalUpBorder
+            );
+
+            _transform.position = new Vector3(xPosition, yPosition, 0f);
         }
     }
 }
