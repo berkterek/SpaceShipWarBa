@@ -12,7 +12,6 @@ namespace SpaceShipWarBa.Controllers
 
         void Awake()
         {
-            Health = new Health();
         }
 
         public void OnTriggerEnter2D(Collider2D other)

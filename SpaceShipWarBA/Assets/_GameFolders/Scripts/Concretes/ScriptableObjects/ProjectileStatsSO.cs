@@ -1,10 +1,11 @@
 using SpaceShipWarBa.Abstracts.DataContainers;
+using SpaceShipWarBa.Abstracts.ScriptableObjects;
 using UnityEngine;
 
 namespace SpaceShipWarBa.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Projectile Stats",menuName = "Bilge Adam/Stats/Projectile Stats")]
-    public class ProjectileStatsSO : ScriptableObject, IProjectileStats
+    public class ProjectileStatsSO : AttackerStats, IProjectileStats
     {
         [SerializeField] float _moveSpeed = 10f;
         [SerializeField] int _direction = 1;
@@ -15,4 +16,3 @@ namespace SpaceShipWarBa.ScriptableObjects
         public int Direction => _direction;
     }    
 }
-

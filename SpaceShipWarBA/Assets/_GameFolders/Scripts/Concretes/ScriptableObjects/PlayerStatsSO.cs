@@ -1,11 +1,12 @@
 using SpaceShipWarBa.Abstracts.DataContainers;
+using SpaceShipWarBa.Abstracts.ScriptableObjects;
 using SpaceShipWarBa.Controllers;
 using UnityEngine;
 
 namespace SpaceShipWarBa.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "Player Stats",menuName = "Bilge Adam/Stats/Player Stats")]
-    public class PlayerStatsSO : ScriptableObject, IPlayerStats
+    public class PlayerStatsSO : CharacterStats, IPlayerStats
     {
         [Header("Animations")] 
         [SerializeField] Sprite[] _sprites;
@@ -16,10 +17,7 @@ namespace SpaceShipWarBa.ScriptableObjects
         [SerializeField] float _verticalUpBorder = 1f;
         [SerializeField] float _verticalDownBorder = -5f;
 
-        [Header("Combats")] 
-        [Tooltip("This line is character's max health")]
-        [SerializeField] int _maxHealth = 100;
-        [SerializeField] int _maxDamage = 10;
+        [Header("Combats")]
         [Range(0.1f,5f)]
         [SerializeField] float _fireRate = 0.3f;
         [SerializeField] ProjectileController _projectile;
@@ -29,8 +27,7 @@ namespace SpaceShipWarBa.ScriptableObjects
         public float VerticalUpBorder => _verticalUpBorder;
         public float VerticalDownBorder => _verticalDownBorder;
         public Sprite[] Sprites => _sprites;
-        public int MaxHealth => _maxHealth;
-        public int MaxDamage => _maxDamage;
+        
         public float FireRate => _fireRate;
         public ProjectileController Projectile => _projectile;
     }

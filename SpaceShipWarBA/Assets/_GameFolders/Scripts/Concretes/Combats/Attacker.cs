@@ -1,14 +1,17 @@
 using SpaceShipWarBa.Abstracts.Combats;
+using SpaceShipWarBa.Abstracts.ScriptableObjects;
 
 namespace SpaceShipWarBa.Combats
 {
-    public class Attacker : IAttacker 
+    public class Attacker : IAttacker
     {
-        public int Damage { get; }
+        readonly AttackerStats _attackerStats;
+        
+        public int Damage => _attackerStats.MaxDamage;
 
-        public Attacker()
+        public Attacker(AttackerStats attackerStats)
         {
-            Damage = 10;
+            _attackerStats = attackerStats;
         }
     }    
 }

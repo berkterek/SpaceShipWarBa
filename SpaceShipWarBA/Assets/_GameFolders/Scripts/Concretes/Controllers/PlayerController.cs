@@ -43,8 +43,8 @@ namespace SpaceShipWarBa.Controllers
             //burdaki this anlami bu class'in kendisi demektir
             _mover = new PlayerTranslateMovement(this);
             _animation = new PlayerAnimation(this);
-            Health = new Health();
-            Attacker = new Attacker();
+            Health = new CharacterHealth(_stats);
+            Attacker = new Attacker(_stats);
         }
 
         void Update()

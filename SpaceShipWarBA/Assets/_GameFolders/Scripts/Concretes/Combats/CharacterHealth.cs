@@ -1,18 +1,17 @@
 using SpaceShipWarBa.Abstracts.Combats;
-using UnityEngine;
+using SpaceShipWarBa.Abstracts.ScriptableObjects;
 
 namespace SpaceShipWarBa.Combats
 {
-    public class Health : IHealth
+    public class CharacterHealth : IHealth
     {
         int _currentHealth;
         bool IsDead => _currentHealth <= 0; 
 
         //Yapici method ile biz current health'i belirleriz
-        public Health()
+        public CharacterHealth(CharacterStats stats)
         {
-            _currentHealth = 100;
-            Debug.Log(_currentHealth);
+            _currentHealth = stats.MaxHealth;
         }
 
         public void TakeDamage(IAttacker attacker)
@@ -21,7 +20,6 @@ namespace SpaceShipWarBa.Combats
 
                 //attacker bizim current health'imize zarar veriyor
             _currentHealth -= attacker.Damage;
-            Debug.Log(_currentHealth);
 
             if (IsDead)
             {

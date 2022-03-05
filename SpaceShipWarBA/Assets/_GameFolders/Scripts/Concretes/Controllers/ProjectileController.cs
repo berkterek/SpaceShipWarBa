@@ -24,7 +24,7 @@ namespace SpaceShipWarBa.Controllers
 
         void Awake()
         {
-            Attacker = new Attacker();
+            Attacker = new Attacker(_stats);
             _mover = new ProjectileRigidbodyMovement(this);
             _dying = new DyingWithDestroy(this);
         }
