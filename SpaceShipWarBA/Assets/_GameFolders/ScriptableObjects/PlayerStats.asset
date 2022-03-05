@@ -20,3 +20,6 @@ MonoBehaviour:
   _horizontalBorder: 2
   _verticalUpBorder: 1
   _verticalDownBorder: -5
+  _maxHealth: 100
+  _maxDamage: 10
+  _fireRate: 0.3

@@ -5,6 +5,7 @@ using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Inputs;
 using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Animations;
+using SpaceShipWarBa.Combats;
 using SpaceShipWarBa.Inputs;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
@@ -12,6 +13,8 @@ using UnityEngine;
 
 namespace SpaceShipWarBa.Controllers
 {
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [SerializeField] PlayerStatsSO _stats;
@@ -22,7 +25,9 @@ namespace SpaceShipWarBa.Controllers
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
-
+        public IAttacker Attacker { get; private set; }
+        public IHealth Health { get; private set; }
+        
         void Awake()
         {
             #region IInputReader ornek anlatim icin
@@ -36,6 +41,8 @@ namespace SpaceShipWarBa.Controllers
             //burdaki this anlami bu class'in kendisi demektir
             _mover = new PlayerTranslateMovement(this);
             _animation = new PlayerAnimation(this);
+            Health = new Health();
+            Attacker = new Attacker();
         }
 
         void Update()
@@ -52,6 +59,13 @@ namespace SpaceShipWarBa.Controllers
         void LateUpdate()
         {
             _animation.LateTick();
+        }
+        
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.TryGetComponent(out IAttackerController attackerController)) return;
+            
+            Health.TakeDamage(attackerController.Attacker);
         }
 
         #region IInputReader ornek anlatim
