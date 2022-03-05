@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095a0eebd32104e46bb05ac0a6c4fa93, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
+  _maxDamage: 10
+  _maxHealth: 100
   _sprites:
   - {fileID: 21300000, guid: 009b06e19aa897447a39e0165a3c8fca, type: 3}
   - {fileID: 21300000, guid: 7f3fb703bad786e42a293b095980443a, type: 3}
@@ -20,6 +22,5 @@ MonoBehaviour:
   _horizontalBorder: 2
   _verticalUpBorder: 1
   _verticalDownBorder: -5
-  _maxHealth: 100
-  _maxDamage: 10
-  _fireRate: 0.3
+  _fireRate: 0.2
+  _projectile: {fileID: 6130783646005876395, guid: 297fdf476d5b7e34e9067b6a15166ccd, type: 3}

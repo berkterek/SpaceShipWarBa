@@ -1,25 +1,18 @@
-using System;
-using SpaceShipWarBa.Abstracts.Combats;
 using SpaceShipWarBa.Abstracts.Controllers;
-using SpaceShipWarBa.Combats;
-using UnityEngine;
 
 namespace SpaceShipWarBa.Controllers
 {
-    public class EnemyController : MonoBehaviour,IHealthController
+    public class EnemyController : BaseCharacterController, IEnemyController
     {
-        public IHealth Health { get; private set; }
-
-        void Awake()
+        protected override void FireProcess()
         {
+            // _currentAttackTime += Time.deltaTime;
+            //
+            // if (_currentAttackTime > _stats.FireRate)
+            // {
+            //     _currentAttackTime = 0f;
+            //     Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
+            // }
         }
-
-        public void OnTriggerEnter2D(Collider2D other)
-        {
-            if (!other.TryGetComponent(out IAttackerController attackerController)) return;
-            
-            Health.TakeDamage(attackerController.Attacker);
-        }
-    }    
+    }
 }
-

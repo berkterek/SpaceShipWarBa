@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6152e925d308974c8ba8a9fa9332b37, type: 3}
-  m_Name: PlayerProjectileStats
+  m_Name: TestProjectileStats
   m_EditorClassIdentifier: 
   _maxDamage: 10
   _moveSpeed: 700
-  _direction: 1
+  _direction: 0
   _maxTime: 3

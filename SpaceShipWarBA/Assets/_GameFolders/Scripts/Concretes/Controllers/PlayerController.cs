@@ -1,10 +1,7 @@
-using System;
 using SpaceShipWarBa.Abstracts.Animations;
-using SpaceShipWarBa.Abstracts.Combats;
 using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Inputs;
-using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Animations;
 using SpaceShipWarBa.Combats;
 using SpaceShipWarBa.Inputs;
@@ -14,22 +11,14 @@ using UnityEngine;
 
 namespace SpaceShipWarBa.Controllers
 {
-    [RequireComponent(typeof(Collider2D))]
-    [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerController : MonoBehaviour, IPlayerController
+    public class PlayerController : BaseCharacterController, IPlayerController
     {
         [SerializeField] PlayerStatsSO _stats;
         
-        IMover _mover;
         IAnimation _animation;
-        IDying _dying;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
-        public IAttacker Attacker { get; private set; }
-        public IHealth Health { get; private set; }
-
-        float _currentAttackTime = 0f;
         
         void Awake()
         {
@@ -49,42 +38,12 @@ namespace SpaceShipWarBa.Controllers
             _dying = new DyingWithDestroy(this);
         }
 
-        void OnEnable()
-        {
-            Health.OnDead += _dying.DyingAction;
-        }
-
-        void OnDisable()
-        {
-            Health.OnDead -= _dying.DyingAction;
-        }
-
-        void Update()
-        {
-            _mover.Tick();
-
-            FireProcess();
-        }
-
-        void FixedUpdate()
-        {
-            //yurume islemlerini yapiyoruz fizik
-            _mover.FixedTick();
-        }
-
         void LateUpdate()
         {
             _animation.LateTick();
         }
-        
-        public void OnTriggerEnter2D(Collider2D other)
-        {
-            if (!other.TryGetComponent(out IAttackerController attackerController)) return;
-            
-            Health.TakeDamage(attackerController.Attacker);
-        }
 
-        private void FireProcess()
+        protected override void FireProcess()
         {
             _currentAttackTime += Time.deltaTime;
 
