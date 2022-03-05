@@ -6,8 +6,11 @@ namespace SpaceShipWarBa.Abstracts.DataContainers
     {
         float MoveSpeed { get; }
         float HorizontalBorder { get; }
-        public float VerticalUpBorder { get; }
-        public float VerticalDownBorder { get; }
+        float VerticalUpBorder { get; }
+        float VerticalDownBorder { get; }
         Sprite[] Sprites { get; }
+        int MaxHealth { get; }
+        int MaxDamage { get; }
+        float FireRate { get; }
     }
 }
