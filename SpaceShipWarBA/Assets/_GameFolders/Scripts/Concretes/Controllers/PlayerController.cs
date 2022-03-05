@@ -27,6 +27,8 @@ namespace SpaceShipWarBa.Controllers
         public IPlayerStats Stats => _stats;
         public IAttacker Attacker { get; private set; }
         public IHealth Health { get; private set; }
+
+        float _currentAttackTime = 0f;
         
         void Awake()
         {
@@ -48,6 +50,8 @@ namespace SpaceShipWarBa.Controllers
         void Update()
         {
             _mover.Tick();
+
+            FireProcess();
         }
 
         void FixedUpdate()
@@ -66,6 +70,18 @@ namespace SpaceShipWarBa.Controllers
             if (!other.TryGetComponent(out IAttackerController attackerController)) return;
             
             Health.TakeDamage(attackerController.Attacker);
+        }
+
+        private void FireProcess()
+        {
+            _currentAttackTime += Time.deltaTime;
+
+            //Fire Process
+            if (_currentAttackTime > _stats.FireRate)
+            {
+                _currentAttackTime = 0f;
+                Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
+            }
         }
 
         #region IInputReader ornek anlatim

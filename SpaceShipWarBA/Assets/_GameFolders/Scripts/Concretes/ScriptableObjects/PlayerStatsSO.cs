@@ -1,4 +1,5 @@
 using SpaceShipWarBa.Abstracts.DataContainers;
+using SpaceShipWarBa.Controllers;
 using UnityEngine;
 
 namespace SpaceShipWarBa.ScriptableObjects
@@ -21,6 +22,7 @@ namespace SpaceShipWarBa.ScriptableObjects
         [SerializeField] int _maxDamage = 10;
         [Range(0.1f,5f)]
         [SerializeField] float _fireRate = 0.3f;
+        [SerializeField] ProjectileController _projectile;
 
         public float MoveSpeed => _moveSpeed;
         public float HorizontalBorder => _horizontalBorder;
@@ -30,5 +32,6 @@ namespace SpaceShipWarBa.ScriptableObjects
         public int MaxHealth => _maxHealth;
         public int MaxDamage => _maxDamage;
         public float FireRate => _fireRate;
+        public ProjectileController Projectile => _projectile;
     }
 }
