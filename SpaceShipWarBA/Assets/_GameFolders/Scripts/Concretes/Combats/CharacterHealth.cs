@@ -6,7 +6,8 @@ namespace SpaceShipWarBa.Combats
     public class CharacterHealth : IHealth
     {
         int _currentHealth;
-        bool IsDead => _currentHealth <= 0; 
+        bool IsDead => _currentHealth <= 0;
+        public event System.Action OnDead;
 
         //Yapici method ile biz current health'i belirleriz
         public CharacterHealth(CharacterStats stats)
@@ -23,7 +24,11 @@ namespace SpaceShipWarBa.Combats
 
             if (IsDead)
             {
-                //dying
+                OnDead?.Invoke();
+                // if (OnDead != null)
+                // {
+                //     OnDead.Invoke();
+                // }
             }
         }
     }

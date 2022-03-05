@@ -1,3 +1,4 @@
+using System;
 using SpaceShipWarBa.Abstracts.Animations;
 using SpaceShipWarBa.Abstracts.Combats;
 using SpaceShipWarBa.Abstracts.Controllers;
@@ -21,7 +22,7 @@ namespace SpaceShipWarBa.Controllers
         
         IMover _mover;
         IAnimation _animation;
-        IHealth _health;
+        IDying _dying;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
@@ -45,6 +46,17 @@ namespace SpaceShipWarBa.Controllers
             _animation = new PlayerAnimation(this);
             Health = new CharacterHealth(_stats);
             Attacker = new Attacker(_stats);
+            _dying = new DyingWithDestroy(this);
+        }
+
+        void OnEnable()
+        {
+            Health.OnDead += _dying.DyingAction;
+        }
+
+        void OnDisable()
+        {
+            Health.OnDead -= _dying.DyingAction;
         }
 
         void Update()
