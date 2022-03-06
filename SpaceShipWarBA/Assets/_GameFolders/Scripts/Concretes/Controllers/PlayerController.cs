@@ -14,12 +14,12 @@ namespace SpaceShipWarBa.Controllers
     public class PlayerController : BaseCharacterController, IPlayerController
     {
         [SerializeField] PlayerStatsSO _stats;
-        
+
         IAnimation _animation;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
-        
+
         void Awake()
         {
             #region IInputReader ornek anlatim icin
@@ -33,9 +33,8 @@ namespace SpaceShipWarBa.Controllers
             //burdaki this anlami bu class'in kendisi demektir
             _mover = new PlayerTranslateMovement(this);
             _animation = new PlayerAnimation(this);
-            Health = new CharacterHealth(_stats);
-            Attacker = new Attacker(_stats);
-            _dying = new DyingWithDestroy(this);
+
+            AwakeProcess(this, _stats, _stats);
         }
 
         void LateUpdate()

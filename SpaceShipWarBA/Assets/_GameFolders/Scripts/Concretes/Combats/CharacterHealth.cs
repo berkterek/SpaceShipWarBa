@@ -1,5 +1,5 @@
 using SpaceShipWarBa.Abstracts.Combats;
-using SpaceShipWarBa.Abstracts.ScriptableObjects;
+using SpaceShipWarBa.Abstracts.DataContainers;
 
 namespace SpaceShipWarBa.Combats
 {
@@ -10,7 +10,7 @@ namespace SpaceShipWarBa.Combats
         public event System.Action OnDead;
 
         //Yapici method ile biz current health'i belirleriz
-        public CharacterHealth(CharacterStats stats)
+        public CharacterHealth(ICharacterStats stats)
         {
             _currentHealth = stats.MaxHealth;
         }

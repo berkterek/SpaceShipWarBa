@@ -1,6 +1,8 @@
 ﻿using SpaceShipWarBa.Abstracts.Combats;
-using SpaceShipWarBa.Abstracts.Controllers;
+using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Movements;
+using SpaceShipWarBa.Abstracts.ScriptableObjects;
+using SpaceShipWarBa.Combats;
 using UnityEngine;
 
 namespace SpaceShipWarBa.Abstracts.Controllers
@@ -12,10 +14,18 @@ namespace SpaceShipWarBa.Abstracts.Controllers
         protected IMover _mover;
         protected IDying _dying;
         protected float _currentAttackTime = 0f;
-        
+
         public IAttacker Attacker { get; protected set; }
         public IHealth Health { get; protected set; }
-        
+
+        protected void AwakeProcess(IEntityController entityController, ICharacterStats characterStats,
+            AttackerStats attackerStats)
+        {
+            Health = new CharacterHealth(characterStats);
+            Attacker = new Attacker(attackerStats);
+            _dying = new DyingWithDestroy(entityController);
+        }
+
         protected virtual void OnEnable()
         {
             Health.OnDead += _dying.DyingAction;
@@ -25,7 +35,7 @@ namespace SpaceShipWarBa.Abstracts.Controllers
         {
             Health.OnDead -= _dying.DyingAction;
         }
-        
+
         protected virtual void Update()
         {
             _mover.Tick();
@@ -41,7 +51,7 @@ namespace SpaceShipWarBa.Abstracts.Controllers
         public virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.TryGetComponent(out IAttackerController attackerController)) return;
-            
+
             Health.TakeDamage(attackerController.Attacker);
         }
 
