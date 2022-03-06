@@ -11,12 +11,12 @@ namespace SpaceShipWarBa.Abstracts.Controllers
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseCharacterController : MonoBehaviour
     {
-        protected IMover _mover;
+        
         protected IDying _dying;
         protected float _currentAttackTime = 0f;
 
-        public IAttacker Attacker { get; protected set; }
-        public IHealth Health { get; protected set; }
+        public IAttacker Attacker { get; private set; }
+        public IHealth Health { get; private set; }
 
         protected void AwakeProcess(IEntityController entityController, ICharacterStats characterStats,
             AttackerStats attackerStats)
@@ -28,24 +28,17 @@ namespace SpaceShipWarBa.Abstracts.Controllers
 
         protected virtual void OnEnable()
         {
-            Health.OnDead += _dying.DyingAction;
+            Health.OnDead += HandleOnDead;
         }
 
         protected virtual void OnDisable()
         {
-            Health.OnDead -= _dying.DyingAction;
+            Health.OnDead -= HandleOnDead;
         }
 
         protected virtual void Update()
         {
-            _mover.Tick();
-
             FireProcess();
-        }
-
-        protected virtual void FixedUpdate()
-        {
-            _mover.FixedTick();
         }
 
         public virtual void OnTriggerEnter2D(Collider2D other)
@@ -56,5 +49,10 @@ namespace SpaceShipWarBa.Abstracts.Controllers
         }
 
         protected abstract void FireProcess();
+
+        protected virtual void HandleOnDead()
+        {
+            _dying.DyingAction();
+        }
     }
 }

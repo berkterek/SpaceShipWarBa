@@ -5,5 +5,5 @@ namespace SpaceShipWarBa.Abstracts.Movements
     {
         void Tick();
         void FixedTick();
-    }    
+    }
 }

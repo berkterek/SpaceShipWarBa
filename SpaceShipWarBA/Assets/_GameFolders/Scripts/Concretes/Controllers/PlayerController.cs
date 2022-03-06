@@ -2,8 +2,8 @@ using SpaceShipWarBa.Abstracts.Animations;
 using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Inputs;
+using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Animations;
-using SpaceShipWarBa.Combats;
 using SpaceShipWarBa.Inputs;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
@@ -16,6 +16,7 @@ namespace SpaceShipWarBa.Controllers
         [SerializeField] PlayerStatsSO _stats;
 
         IAnimation _animation;
+        IMover _mover;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
@@ -37,8 +38,15 @@ namespace SpaceShipWarBa.Controllers
             AwakeProcess(this, _stats, _stats);
         }
 
+        protected override void Update()
+        {
+            _mover.Tick();
+            base.Update();
+        }
+
         void LateUpdate()
         {
+            _mover.FixedTick();
             _animation.LateTick();
         }
 
