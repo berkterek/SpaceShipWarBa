@@ -54,7 +54,6 @@ namespace SpaceShipWarBa.Controllers
         {
             _currentAttackTime += Time.deltaTime;
 
-            //Fire Process
             if (_currentAttackTime > _stats.FireRate)
             {
                 _currentAttackTime = 0f;
