@@ -23,7 +23,6 @@ namespace SpaceShipWarBa.Movements
             for (int i = 0; i < path.transform.childCount; i++)
             {
                 _paths[i] = path.transform.GetChild(i);
-                Debug.Log(_paths[i].gameObject.name);
             }
 
             SetNewIndex();
@@ -43,7 +42,6 @@ namespace SpaceShipWarBa.Movements
                 }
                 else
                 {
-                    //End of paths
                     OnEndOfPaths?.Invoke();
                 }
             }

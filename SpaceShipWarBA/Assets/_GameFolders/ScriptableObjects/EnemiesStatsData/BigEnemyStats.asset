@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxDamage: 50
   _moveSpeed: 2
-  _maxHealth: 200
+  _maxHealth: 100
   _fireRate: 2
   _projectile: {fileID: 1134291176333843462, guid: 1864f0a4cabc48645b5c9cb7cb4beac5, type: 3}
   _maxFireRate: 5
+  _scoreValue: 50

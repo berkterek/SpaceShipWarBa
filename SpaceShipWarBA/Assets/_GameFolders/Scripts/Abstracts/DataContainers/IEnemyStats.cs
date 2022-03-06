@@ -2,6 +2,6 @@
 {
     public interface IEnemyStats : ICharacterStats
     {
-        
+        int ScoreValue { get; }
     }
 }

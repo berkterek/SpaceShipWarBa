@@ -4,6 +4,9 @@ namespace SpaceShipWarBa.Managers
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] int _gameplayScore;
+        [SerializeField] int _bestScore;
+        
         public static GameManager Instance { get; private set; }
 
         void Awake()
@@ -22,6 +25,11 @@ namespace SpaceShipWarBa.Managers
             {
                 Destroy(this.gameObject);
             }
+        }
+
+        public void SetScore(int statsScoreValue)
+        {
+            _gameplayScore += statsScoreValue;
         }
     }    
 }

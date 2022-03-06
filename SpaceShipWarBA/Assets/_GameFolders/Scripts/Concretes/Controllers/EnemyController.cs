@@ -1,6 +1,7 @@
 using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Movements;
+using SpaceShipWarBa.Managers;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
 using UnityEngine;
@@ -58,6 +59,16 @@ namespace SpaceShipWarBa.Controllers
         {
             _mover = new EnemyTranslateMovement(this, path);
             _mover.OnEndOfPaths += HandleOnDead;
+        }
+
+        protected override void HandleOnDead()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SetScore(_stats.ScoreValue);    
+            }
+            
+            base.HandleOnDead();
         }
     }
 }
