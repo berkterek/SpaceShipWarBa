@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4916f462b541ba91fe3e547e80e16e, type: 3}
+  m_Name: RegularEnemyStats
+  m_EditorClassIdentifier: 
+  _maxDamage: 10
+  _moveSpeed: 3
+  _maxHealth: 20
+  _fireRate: 0.99
+  _projectile: {fileID: 1134291176333843462, guid: 1864f0a4cabc48645b5c9cb7cb4beac5, type: 3}
+  _maxFireRate: 3

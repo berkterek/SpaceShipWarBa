@@ -9,28 +9,21 @@ namespace SpaceShipWarBa.Controllers
 {
     public class EnemyController : BaseCharacterController, IEnemyController
     {
-        [SerializeField] GameObject _path;
         [SerializeField] EnemyStatsSO _stats;
 
         public IEnemyStats Stats => _stats;
+
         IEnemyMover _mover;
         float _currentDelayTime;
 
         void Awake()
         {
             AwakeProcess(this, _stats, _stats);
-            _mover = new EnemyTranslateMovement(this,_path);
         }
 
         void Start()
         {
             _currentDelayTime = _stats.FireRate;
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            _mover.OnEndOfPaths += HandleOnDead;
         }
 
         protected override void OnDisable()
@@ -59,6 +52,12 @@ namespace SpaceShipWarBa.Controllers
                 _currentAttackTime = 0f;
                 Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
             }
+        }
+
+        public void SetPath(GameObject path)
+        {
+            _mover = new EnemyTranslateMovement(this, path);
+            _mover.OnEndOfPaths += HandleOnDead;
         }
     }
 }
