@@ -22,6 +22,9 @@ namespace SpaceShipWarBa.Managers
         void Awake()
         {
             SetThisObjectToSingleton();
+            
+            //bu frame'i 60'a fixledigimzi gosterir
+            Application.targetFrameRate = 60;
         }
 
         void Start()
