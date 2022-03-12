@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: c94bbf7a949f5864d8a813f04c7300cc, type: 2}
+  _healthEvent: {fileID: 11400000, guid: 012afffce4108f34fb1059df3ed01da2, type: 2}
 --- !u!1 &6219832897693100839
 GameObject:
   m_ObjectHideFlags: 0
