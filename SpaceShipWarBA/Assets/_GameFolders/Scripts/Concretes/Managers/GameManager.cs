@@ -14,6 +14,8 @@ namespace SpaceShipWarBa.Managers
 
         public static GameManager Instance { get; private set; }
         public int GameplayScore => _gameplayScore;
+        public int BestScore => _bestScore;
+
         public event System.Action<int> OnScoreChanged;
         public event System.Action<int,int> OnGameOvered;
 

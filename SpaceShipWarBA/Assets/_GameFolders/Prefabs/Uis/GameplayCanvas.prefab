@@ -782,6 +782,7 @@ GameObject:
   - component: {fileID: 671350925}
   - component: {fileID: 671350927}
   - component: {fileID: 671350926}
+  - component: {fileID: 2051727241}
   m_Layer: 5
   m_Name: ScoreValueText
   m_TagString: Untagged
@@ -905,6 +906,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2051727241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671350924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e474b0cdd0c43beba721089356f74c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 671350926}
 --- !u!1 &734853289
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +967,7 @@ GameObject:
   - component: {fileID: 1001704669}
   - component: {fileID: 1001704671}
   - component: {fileID: 1001704670}
+  - component: {fileID: 494066284}
   m_Layer: 5
   m_Name: BestScoreValueText
   m_TagString: Untagged
@@ -1076,6 +1091,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &494066284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001704668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474a78c6e3406fb4ca70ebdbda4d6afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 1001704670}
 --- !u!1 &1339289175
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,6 +2066,7 @@ GameObject:
   - component: {fileID: 2091532204}
   - component: {fileID: 2091532203}
   - component: {fileID: 2091532202}
+  - component: {fileID: 1988617956}
   m_Layer: 5
   m_Name: PlayAgainButton
   m_TagString: Untagged
@@ -2146,7 +2175,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2091532203}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1988617956}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1988617956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091532200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6738e9e4dd4884db66faa2c257432f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 0}
 --- !u!1 &2108885521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2213,7 @@ GameObject:
   - component: {fileID: 2108885525}
   - component: {fileID: 2108885523}
   - component: {fileID: 2108885524}
+  - component: {fileID: 1936541414}
   m_Layer: 5
   m_Name: GameOverObjects
   m_TagString: Untagged
@@ -2237,6 +2292,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1936541414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108885521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b273b84025e17d949985ea9f8e799dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 2108885523}
 --- !u!1 &3252586134103558739
 GameObject:
   m_ObjectHideFlags: 0
