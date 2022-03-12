@@ -5,6 +5,7 @@ using SpaceShipWarBa.Abstracts.Inputs;
 using SpaceShipWarBa.Abstracts.Movements;
 using SpaceShipWarBa.Animations;
 using SpaceShipWarBa.Inputs;
+using SpaceShipWarBa.Managers;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
 using UnityEngine;
@@ -72,6 +73,12 @@ namespace SpaceShipWarBa.Controllers
                 _currentAttackTime = 0f;
                 Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
             }
+        }
+
+        protected override void HandleOnDead()
+        {
+            GameManager.Instance.GameOverProcess();
+            base.HandleOnDead();
         }
 
         #region IInputReader ornek anlatim

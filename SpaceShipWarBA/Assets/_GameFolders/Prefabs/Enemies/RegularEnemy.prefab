@@ -54,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 2266148692759000700, guid: 355db379ce6b3e44f9b49bac036c507a, type: 3}
       propertyPath: _stats
       value: 
-      objectReference: {fileID: 11400000, guid: dae3a1ce0a3203347956e1a87be3e14e, type: 2}
+      objectReference: {fileID: 11400000, guid: 49941544a7f22914599b73a79543bba3, type: 2}
     - target: {fileID: 2266148692759000701, guid: 355db379ce6b3e44f9b49bac036c507a, type: 3}
       propertyPath: m_Name
       value: RegularEnemy
