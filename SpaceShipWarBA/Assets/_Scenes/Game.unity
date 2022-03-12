@@ -264,6 +264,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9175429960339243149}
     m_Modifications:
+    - target: {fileID: 450317691, guid: e7ef2ef75851bc144ba16a56eb3314bc, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 609822323, guid: e7ef2ef75851bc144ba16a56eb3314bc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -262.61346
@@ -759,6 +763,35 @@ Transform:
   m_Father: {fileID: 1709195906}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1097181222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1352709595, guid: e7ef2ef75851bc144ba16a56eb3314bc, type: 3}
+  m_PrefabInstance: {fileID: 317424597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097181224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1352709597, guid: e7ef2ef75851bc144ba16a56eb3314bc, type: 3}
+  m_PrefabInstance: {fileID: 317424597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097181222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1097181226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097181222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64731bba69644d44eb26ac5cb75a22e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 1097181224}
 --- !u!4 &1121841506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4154145419895049332, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
@@ -979,6 +1012,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a815d4a272f61a44a8d0da4cc4e3237c, type: 3}
+--- !u!1 &1579850210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 450317689, guid: e7ef2ef75851bc144ba16a56eb3314bc, type: 3}
+  m_PrefabInstance: {fileID: 317424597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1579850214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579850210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a017d020e29216b45bd7fc43ba8055a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventHandler: {fileID: 11400000, guid: 012afffce4108f34fb1059df3ed01da2, type: 2}
 --- !u!4 &1678172705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6393595774575737790, guid: a815d4a272f61a44a8d0da4cc4e3237c, type: 3}
@@ -1155,7 +1206,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4154145418645467811, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1e-45
+      value: -3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 4154145418751591785, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: orthographic size
@@ -1163,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4154145418751591830, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1e-45
+      value: -3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 4154145419895049332, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: m_RootOrder
@@ -1331,6 +1382,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6219832896762092249, guid: af345b2db1aca20439d664ab0b051edb, type: 3}
+      propertyPath: _healthEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 012afffce4108f34fb1059df3ed01da2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af345b2db1aca20439d664ab0b051edb, type: 3}
 --- !u!1001 &6393595774402393405

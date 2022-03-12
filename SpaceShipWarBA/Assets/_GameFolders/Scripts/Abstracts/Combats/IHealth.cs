@@ -5,5 +5,6 @@ namespace SpaceShipWarBa.Abstracts.Combats
     {
         void TakeDamage(IAttacker attacker);
         event System.Action OnDead;
+        event System.Action<int, int> OnTookDamage;
     }    
 }

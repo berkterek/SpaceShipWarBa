@@ -14,6 +14,7 @@ namespace SpaceShipWarBa.Controllers
     public class PlayerController : BaseCharacterController, IPlayerController
     {
         [SerializeField] PlayerStatsSO _stats;
+        [SerializeField] TwoIntParametreEventHandlerSO _healthEvent;
 
         IAnimation _animation;
         IMover _mover;
@@ -36,6 +37,18 @@ namespace SpaceShipWarBa.Controllers
             _animation = new PlayerAnimation(this);
 
             AwakeProcess(this, _stats, _stats);
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            Health.OnTookDamage += _healthEvent.TwoIntEventHandler;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            Health.OnTookDamage -= _healthEvent.TwoIntEventHandler;
         }
 
         protected override void Update()

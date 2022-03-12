@@ -5,14 +5,17 @@ namespace SpaceShipWarBa.Combats
 {
     public class CharacterHealth : IHealth
     {
+        readonly int _maxHealth;
         int _currentHealth;
         bool IsDead => _currentHealth <= 0;
         public event System.Action OnDead;
+        public event System.Action<int, int> OnTookDamage;
 
         //Yapici method ile biz current health'i belirleriz
         public CharacterHealth(ICharacterStats stats)
         {
             _currentHealth = stats.MaxHealth;
+            _maxHealth = stats.MaxHealth;
         }
 
         public void TakeDamage(IAttacker attacker)
@@ -21,6 +24,7 @@ namespace SpaceShipWarBa.Combats
 
                 //attacker bizim current health'imize zarar veriyor
             _currentHealth -= attacker.Damage;
+            OnTookDamage?.Invoke(_currentHealth,_maxHealth);
 
             if (IsDead)
             {
