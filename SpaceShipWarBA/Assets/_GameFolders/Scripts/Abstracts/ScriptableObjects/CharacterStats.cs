@@ -15,10 +15,15 @@ namespace SpaceShipWarBa.Abstracts.ScriptableObjects
         [SerializeField] protected float _fireRate = 0.3f;
         [SerializeField] ProjectileController _projectile;
         
+        [Header("Sounds")]
+        [SerializeField] AudioClip _deadSound;
+        [SerializeField] AudioClip _takeHitSound;
+        
         public float MoveSpeed => _moveSpeed;
         public virtual float FireRate => _fireRate;
         public ProjectileController Projectile => _projectile;
-        
         public int MaxHealth => _maxHealth;
+        public AudioClip DeadSound => _deadSound;
+        public AudioClip TakeHitSound => _takeHitSound;
     }
 }

@@ -1,7 +1,6 @@
 using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Movements;
-using SpaceShipWarBa.Abstracts.Sounds;
 using SpaceShipWarBa.Managers;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
@@ -17,7 +16,6 @@ namespace SpaceShipWarBa.Controllers
         public IEnemyStats Stats => _stats;
 
         IEnemyMover _mover;
-        ICharacterSoundPlayer _sound;
         float _currentDelayTime;
 
         void Awake()

@@ -3,7 +3,6 @@ using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Inputs;
 using SpaceShipWarBa.Abstracts.Movements;
-using SpaceShipWarBa.Abstracts.Sounds;
 using SpaceShipWarBa.Animations;
 using SpaceShipWarBa.Inputs;
 using SpaceShipWarBa.Managers;
@@ -21,7 +20,6 @@ namespace SpaceShipWarBa.Controllers
 
         IAnimation _animation;
         IMover _mover;
-        ICharacterSoundPlayer _sound;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
@@ -42,18 +40,6 @@ namespace SpaceShipWarBa.Controllers
 
             AwakeProcess(this, _stats, _stats);
             _sound = new AudioSourceSoundPlayer(this, _stats);
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            Health.OnTookDamage += _healthEvent.TwoIntEventHandler;
-        }
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            Health.OnTookDamage -= _healthEvent.TwoIntEventHandler;
         }
 
         protected override void Update()
@@ -78,6 +64,12 @@ namespace SpaceShipWarBa.Controllers
                 Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
                 _sound.LaserSound();
             }
+        }
+
+        protected override void HandleOnTookDamage(int currentHealth, int maxHealth)
+        {
+            base.HandleOnTookDamage(currentHealth, maxHealth);
+            _healthEvent.TwoIntEventHandler(currentHealth,maxHealth);
         }
 
         protected override void HandleOnDead()

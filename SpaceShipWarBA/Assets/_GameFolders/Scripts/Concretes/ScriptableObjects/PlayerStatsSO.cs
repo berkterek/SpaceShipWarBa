@@ -18,14 +18,11 @@ namespace SpaceShipWarBa.ScriptableObjects
 
         [Header("Sounds")] 
         [SerializeField] AudioClip _laserSound;
-        [SerializeField] AudioClip _deadSound;
 
         public float HorizontalBorder => _horizontalBorder;
         public float VerticalUpBorder => _verticalUpBorder;
         public float VerticalDownBorder => _verticalDownBorder;
         public Sprite[] Sprites => _sprites;
         public AudioClip LaserSound => _laserSound;
-        public AudioClip DeadSound => _deadSound;
-        public AudioClip TakeHitSound { get; }
     }
 }

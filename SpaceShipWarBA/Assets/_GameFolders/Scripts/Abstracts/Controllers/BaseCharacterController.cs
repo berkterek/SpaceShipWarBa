@@ -1,6 +1,7 @@
 ﻿using SpaceShipWarBa.Abstracts.Combats;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.ScriptableObjects;
+using SpaceShipWarBa.Abstracts.Sounds;
 using SpaceShipWarBa.Combats;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace SpaceShipWarBa.Abstracts.Controllers
     {
         protected IDying _dying;
         protected float _currentAttackTime = 0f;
+        protected ICharacterSoundPlayer _sound;
 
         public IAttacker Attacker { get; private set; }
         public IHealth Health { get; private set; }
@@ -27,11 +29,13 @@ namespace SpaceShipWarBa.Abstracts.Controllers
         protected virtual void OnEnable()
         {
             Health.OnDead += HandleOnDead;
+            Health.OnTookDamage += HandleOnTookDamage;
         }
 
         protected virtual void OnDisable()
         {
             Health.OnDead -= HandleOnDead;
+            Health.OnTookDamage -= HandleOnTookDamage;
         }
 
         protected virtual void Update()
@@ -51,6 +55,11 @@ namespace SpaceShipWarBa.Abstracts.Controllers
         protected virtual void HandleOnDead()
         {
             _dying.DyingAction();
+        }
+        
+        protected virtual void HandleOnTookDamage(int currentHealth, int maxHealth)
+        {
+            _sound.TakeHitSound();
         }
     }
 }

@@ -17,9 +17,10 @@ MonoBehaviour:
   _maxHealth: 20
   _fireRate: 0.99
   _projectile: {fileID: 1134291176333843462, guid: 1864f0a4cabc48645b5c9cb7cb4beac5, type: 3}
+  _deadSound: {fileID: 8300000, guid: b792925d263e2c44a8e128f6352f4103, type: 3}
+  _takeHitSound: {fileID: 8300000, guid: 4997e946f7845e24eb0d719fbb85d2e6, type: 3}
   _maxFireRate: 3
   _scoreValue: 10
   _laserSounds:
   - {fileID: 8300000, guid: 3eef2feda6bfa5f46b13c89e84dfdcba, type: 3}
   - {fileID: 8300000, guid: 637f09562c1911346a16bf2eb94fcd29, type: 3}
-  _deadSound: {fileID: 8300000, guid: b792925d263e2c44a8e128f6352f4103, type: 3}
