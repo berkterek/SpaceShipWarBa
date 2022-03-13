@@ -12,6 +12,7 @@ namespace SpaceShipWarBa.Controllers
     public class EnemyController : BaseCharacterController, IEnemyController
     {
         [SerializeField] EnemyStatsSO _stats;
+        
 
         public IEnemyStats Stats => _stats;
 

@@ -1,4 +1,5 @@
-﻿using SpaceShipWarBa.Abstracts.Combats;
+﻿using System.Collections;
+using SpaceShipWarBa.Abstracts.Combats;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.ScriptableObjects;
 using SpaceShipWarBa.Abstracts.Sounds;
@@ -11,6 +12,10 @@ namespace SpaceShipWarBa.Abstracts.Controllers
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseCharacterController : MonoBehaviour
     {
+        [SerializeField] GameObject _body;
+        [SerializeField] ParticleSystem _particle;
+        [SerializeField] Collider2D _collider2D;
+        
         protected IDying _dying;
         protected float _currentAttackTime = 0f;
         protected ICharacterSoundPlayer _sound;
@@ -54,6 +59,17 @@ namespace SpaceShipWarBa.Abstracts.Controllers
 
         protected virtual void HandleOnDead()
         {
+            StartCoroutine(HandleOnDeadAsync());
+        }
+
+        IEnumerator HandleOnDeadAsync()
+        {
+            _collider2D.enabled = false;
+            _body.SetActive(false);
+            _particle.gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(0.3f);
+            
             _dying.DyingAction();
         }
         
