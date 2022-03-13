@@ -35,11 +35,6 @@ namespace SpaceShipWarBa.Managers
             }
         }
 
-        void OnDestroy()
-        {
-            PlayerPrefs.SetInt(BEST_SCORE,_bestScore);
-        }
-
         private void SetThisObjectToSingleton()
         {
             if (Instance == null)
@@ -69,6 +64,12 @@ namespace SpaceShipWarBa.Managers
             int passValue = _gameplayScore;
             _gameplayScore = 0;
             OnGameOvered?.Invoke(passValue,_bestScore);
+            
+            if (passValue >= _bestScore)
+            {
+                _bestScore = passValue;
+                PlayerPrefs.SetInt(BEST_SCORE,_bestScore);
+            }
         }
 
         public void LoadGameScene()
