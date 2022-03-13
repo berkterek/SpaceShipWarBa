@@ -22,3 +22,4 @@ MonoBehaviour:
   _laserSounds:
   - {fileID: 8300000, guid: 637f09562c1911346a16bf2eb94fcd29, type: 3}
   - {fileID: 8300000, guid: 3eef2feda6bfa5f46b13c89e84dfdcba, type: 3}
+  _deadSound: {fileID: 8300000, guid: b792925d263e2c44a8e128f6352f4103, type: 3}

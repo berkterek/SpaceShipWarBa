@@ -1,9 +1,11 @@
 using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Movements;
+using SpaceShipWarBa.Abstracts.Sounds;
 using SpaceShipWarBa.Managers;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
+using SpaceShipWarBa.Sounds;
 using UnityEngine;
 
 namespace SpaceShipWarBa.Controllers
@@ -15,13 +17,13 @@ namespace SpaceShipWarBa.Controllers
         public IEnemyStats Stats => _stats;
 
         IEnemyMover _mover;
+        ICharacterSoundPlayer _sound;
         float _currentDelayTime;
-        AudioSource _audioSource;
 
         void Awake()
         {
             AwakeProcess(this, _stats, _stats);
-            _audioSource = GetComponent<AudioSource>();
+            _sound = new AudioSourceSoundPlayer(this, _stats);
         }
 
         void Start()
@@ -54,7 +56,7 @@ namespace SpaceShipWarBa.Controllers
                 _currentDelayTime = _stats.FireRate;
                 _currentAttackTime = 0f;
                 Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
-                _audioSource.PlayOneShot(_stats.LaserSound);   
+                _sound.LaserSound();   
             }
         }
 
@@ -71,7 +73,7 @@ namespace SpaceShipWarBa.Controllers
                 GameManager.Instance.SetScore(_stats.ScoreValue);    
             }
             
-            AudioSource.PlayClipAtPoint(_stats.DeadSound,transform.position);
+            _sound.DeadSound();
             
             base.HandleOnDead();
         }

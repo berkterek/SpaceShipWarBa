@@ -25,3 +25,4 @@ MonoBehaviour:
   _verticalUpBorder: 1
   _verticalDownBorder: -5
   _laserSound: {fileID: 8300000, guid: 751578ab64e2235418c44fe36a2a84b0, type: 3}
+  _deadSound: {fileID: 8300000, guid: b792925d263e2c44a8e128f6352f4103, type: 3}

@@ -26,5 +26,6 @@ namespace SpaceShipWarBa.ScriptableObjects
         public Sprite[] Sprites => _sprites;
         public AudioClip LaserSound => _laserSound;
         public AudioClip DeadSound => _deadSound;
+        public AudioClip TakeHitSound { get; }
     }
 }

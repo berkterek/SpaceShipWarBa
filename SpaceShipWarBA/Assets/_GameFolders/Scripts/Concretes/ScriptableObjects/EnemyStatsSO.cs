@@ -19,5 +19,6 @@ namespace SpaceShipWarBa.ScriptableObjects
         public int ScoreValue => _scoreValue;
         public AudioClip LaserSound => _laserSounds[Random.Range(0, _laserSounds.Length)];
         public AudioClip DeadSound => _deadSound;
+        public AudioClip TakeHitSound { get; }
     }
 }

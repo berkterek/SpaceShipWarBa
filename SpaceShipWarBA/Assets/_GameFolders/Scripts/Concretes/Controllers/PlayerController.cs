@@ -3,11 +3,13 @@ using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
 using SpaceShipWarBa.Abstracts.Inputs;
 using SpaceShipWarBa.Abstracts.Movements;
+using SpaceShipWarBa.Abstracts.Sounds;
 using SpaceShipWarBa.Animations;
 using SpaceShipWarBa.Inputs;
 using SpaceShipWarBa.Managers;
 using SpaceShipWarBa.Movements;
 using SpaceShipWarBa.ScriptableObjects;
+using SpaceShipWarBa.Sounds;
 using UnityEngine;
 
 namespace SpaceShipWarBa.Controllers
@@ -19,7 +21,7 @@ namespace SpaceShipWarBa.Controllers
 
         IAnimation _animation;
         IMover _mover;
-        AudioSource _audioSource;
+        ICharacterSoundPlayer _sound;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
@@ -39,7 +41,7 @@ namespace SpaceShipWarBa.Controllers
             _animation = new PlayerAnimation(this);
 
             AwakeProcess(this, _stats, _stats);
-            _audioSource = GetComponent<AudioSource>();
+            _sound = new AudioSourceSoundPlayer(this, _stats);
         }
 
         protected override void OnEnable()
@@ -74,14 +76,14 @@ namespace SpaceShipWarBa.Controllers
             {
                 _currentAttackTime = 0f;
                 Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
-                _audioSource.PlayOneShot(_stats.LaserSound);
+                _sound.LaserSound();
             }
         }
 
         protected override void HandleOnDead()
         {
             GameManager.Instance.GameOverProcess();
-            AudioSource.PlayClipAtPoint(_stats.DeadSound,transform.position);
+            _sound.DeadSound();
             base.HandleOnDead();
         }
 
