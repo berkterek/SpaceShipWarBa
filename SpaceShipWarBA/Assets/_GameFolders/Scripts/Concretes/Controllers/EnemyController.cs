@@ -58,7 +58,7 @@ namespace SpaceShipWarBa.Controllers
         public void SetPath(GameObject path)
         {
             _mover = new EnemyTranslateMovement(this, path);
-            _mover.OnEndOfPaths += HandleOnDead;
+            _mover.OnEndOfPaths += _dying.DyingAction;
         }
 
         protected override void HandleOnDead()
