@@ -1,3 +1,4 @@
+using System.Collections;
 using SpaceShipWarBa.Abstracts.Combats;
 using SpaceShipWarBa.Abstracts.Controllers;
 using SpaceShipWarBa.Abstracts.DataContainers;
@@ -18,12 +19,19 @@ namespace SpaceShipWarBa.Controllers
         float _currentTime = 0f;
         IMover _mover;
         IDying _dying;
+        bool _isOnTrigger = false;
+        SpriteRenderer _spriteRenderer;
+        Collider2D _collider2D;
+        Rigidbody2D _rigidbody;
 
         public IAttacker Attacker { get; private set; }
         public IProjectileStats Stats => _stats;
 
         void Awake()
         {
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _collider2D = GetComponent<Collider2D>();
+            _rigidbody = GetComponent<Rigidbody2D>();
             Attacker = new Attacker(_stats);
             _mover = new ProjectileRigidbodyMovement(this);
             _dying = new DyingWithDestroy(this);
@@ -31,18 +39,34 @@ namespace SpaceShipWarBa.Controllers
 
         void Update()
         {
+            if (_isOnTrigger) return;
+            
             TimeToDie();
-
             _mover.Tick();
         }
 
         void FixedUpdate()
         {
+            if (_isOnTrigger) return;
+            
             _mover.FixedTick();
         }
 
         void OnTriggerEnter2D(Collider2D other)
         {
+            StartCoroutine(DyingAsync());
+        }
+
+        IEnumerator DyingAsync()
+        {
+            _isOnTrigger = true;
+
+            _rigidbody.velocity = Vector2.zero;
+            _collider2D.enabled = false;
+            _spriteRenderer.sprite = _stats.CollisionSprite;
+
+            yield return new WaitForSeconds(0.2f);
+            
             _dying.DyingAction();
         }
 

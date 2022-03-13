@@ -10,9 +10,11 @@ namespace SpaceShipWarBa.ScriptableObjects
         [SerializeField] float _moveSpeed = 10f;
         [SerializeField] int _direction = 1;
         [SerializeField] float _maxTime = 5f;
+        [SerializeField] Sprite _collisionSprite;
 
         public float MoveSpeed => _moveSpeed;
         public float MaxTime => _maxTime;
         public int Direction => _direction;
+        public Sprite CollisionSprite => _collisionSprite;
     }    
 }

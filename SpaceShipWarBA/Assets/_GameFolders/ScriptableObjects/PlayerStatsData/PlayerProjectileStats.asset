@@ -16,3 +16,4 @@ MonoBehaviour:
   _moveSpeed: 700
   _direction: 1
   _maxTime: 3
+  _collisionSprite: {fileID: 21300000, guid: e42f5776cf8b89f46807608c308e0600, type: 3}
