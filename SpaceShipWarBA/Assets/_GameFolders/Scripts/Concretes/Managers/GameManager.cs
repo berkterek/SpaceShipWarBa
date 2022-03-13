@@ -12,6 +12,8 @@ namespace SpaceShipWarBa.Managers
 
         const string BEST_SCORE = "best_score";
 
+        bool _isGameOvered = false;
+
         public static GameManager Instance { get; private set; }
         public int GameplayScore => _gameplayScore;
         public int BestScore => _bestScore;
@@ -50,6 +52,8 @@ namespace SpaceShipWarBa.Managers
 
         public void SetScore(int statsScoreValue)
         {
+            if (_isGameOvered) return;
+            
             _gameplayScore += statsScoreValue;
             OnScoreChanged?.Invoke(_gameplayScore);
 
@@ -61,6 +65,7 @@ namespace SpaceShipWarBa.Managers
 
         public void GameOverProcess()
         {
+            _isGameOvered = true;
             int passValue = _gameplayScore;
             _gameplayScore = 0;
             OnGameOvered?.Invoke(passValue,_bestScore);
@@ -74,6 +79,7 @@ namespace SpaceShipWarBa.Managers
 
         public void LoadGameScene()
         {
+            _isGameOvered = false;
             StartCoroutine(LoadSceneAsync("Game"));
         }
         
