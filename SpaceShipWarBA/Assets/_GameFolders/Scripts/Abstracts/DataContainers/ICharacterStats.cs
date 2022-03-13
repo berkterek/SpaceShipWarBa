@@ -1,4 +1,6 @@
-﻿namespace SpaceShipWarBa.Abstracts.DataContainers
+﻿using UnityEngine;
+
+namespace SpaceShipWarBa.Abstracts.DataContainers
 {
     public interface ICharacterStats
     {
@@ -6,5 +8,6 @@
         int MaxHealth { get; }
         int MaxDamage { get; }
         float FireRate { get; }
+        AudioClip LaserSound { get; }
     }
 }

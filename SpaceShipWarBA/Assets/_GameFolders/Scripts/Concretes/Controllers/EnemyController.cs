@@ -16,10 +16,12 @@ namespace SpaceShipWarBa.Controllers
 
         IEnemyMover _mover;
         float _currentDelayTime;
+        AudioSource _audioSource;
 
         void Awake()
         {
             AwakeProcess(this, _stats, _stats);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         void Start()
@@ -46,13 +48,13 @@ namespace SpaceShipWarBa.Controllers
 
         protected override void FireProcess()
         {
-            //TODO fire sound
             _currentAttackTime += Time.deltaTime;
             if (_currentAttackTime > _currentDelayTime)
             {
                 _currentDelayTime = _stats.FireRate;
                 _currentAttackTime = 0f;
                 Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
+                _audioSource.PlayOneShot(_stats.LaserSound);   
             }
         }
 

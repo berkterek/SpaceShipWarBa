@@ -8,6 +8,5 @@ namespace SpaceShipWarBa.Abstracts.DataContainers
         float VerticalUpBorder { get; }
         float VerticalDownBorder { get; }
         Sprite[] Sprites { get; }
-        AudioClip LaserSound { get; }
     }
 }

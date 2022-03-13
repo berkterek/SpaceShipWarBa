@@ -11,7 +11,11 @@ namespace SpaceShipWarBa.ScriptableObjects
         float _maxFireRate = 3f;
         [SerializeField] int _scoreValue = 10;
 
+        [Header("Sounds")] 
+        [SerializeField] AudioClip[] _laserSounds;
+        
         public override float FireRate => Random.Range(_fireRate, _maxFireRate);
         public int ScoreValue => _scoreValue;
+        public AudioClip LaserSound => _laserSounds[Random.Range(0, _laserSounds.Length)];
     }
 }
