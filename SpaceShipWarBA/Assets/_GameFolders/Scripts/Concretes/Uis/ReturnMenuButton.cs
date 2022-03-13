@@ -1,38 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using SpaceShipWarBa.Abstracts.Uis;
 using SpaceShipWarBa.Managers;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace SpaceShipWarBa.Uis
 {
-    public class ReturnMenuButton : MonoBehaviour
+    public class ReturnMenuButton : BaseButton
     {
-        [SerializeField] Button _button;
-
-        void Awake()
-        {
-            if (_button == null)
-            {
-                _button = GetComponent<Button>();
-            }
-        }
-
-        void OnEnable()
-        {
-            _button.onClick.AddListener(HandleOnButtonClicked);
-        }
-
-        void OnDisable()
-        {
-            _button.onClick.RemoveListener(HandleOnButtonClicked);   
-        }
-
-        void HandleOnButtonClicked()
+        protected override void HandleOnButtonClicked()
         {
             GameManager.Instance.LoadMenuScene();
         }
-    }    
+    }
 }
 

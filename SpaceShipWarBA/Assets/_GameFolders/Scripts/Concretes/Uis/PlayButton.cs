@@ -1,32 +1,11 @@
+using SpaceShipWarBa.Abstracts.Uis;
 using SpaceShipWarBa.Managers;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace SpaceShipWarBa.Uis
 {
-    public class PlayButton : MonoBehaviour
+    public class PlayButton : BaseButton
     {
-        [SerializeField] Button _button;
-
-        void Awake()
-        {
-            if (_button == null)
-            {
-                _button = GetComponent<Button>();    
-            }
-        }
-
-        void OnEnable()
-        {
-            _button.onClick.AddListener(HandleOnButtonClicked);
-        }
-
-        void OnDisable()
-        {
-            _button.onClick.RemoveListener(HandleOnButtonClicked);
-        }
-        
-        void HandleOnButtonClicked()
+        protected override void HandleOnButtonClicked()
         {
             GameManager.Instance.LoadGameScene();
         }
