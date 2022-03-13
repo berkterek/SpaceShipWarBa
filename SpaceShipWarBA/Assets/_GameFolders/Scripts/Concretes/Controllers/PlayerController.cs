@@ -19,6 +19,7 @@ namespace SpaceShipWarBa.Controllers
 
         IAnimation _animation;
         IMover _mover;
+        AudioSource _audioSource;
 
         public IInputReader InputReader { get; private set; }
         public IPlayerStats Stats => _stats;
@@ -38,6 +39,7 @@ namespace SpaceShipWarBa.Controllers
             _animation = new PlayerAnimation(this);
 
             AwakeProcess(this, _stats, _stats);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         protected override void OnEnable()
@@ -72,11 +74,13 @@ namespace SpaceShipWarBa.Controllers
             {
                 _currentAttackTime = 0f;
                 Instantiate(_stats.Projectile, transform.position, Quaternion.identity);
+                _audioSource.PlayOneShot(_stats.LaserSound);
             }
         }
 
         protected override void HandleOnDead()
         {
+            //TODO dead sound
             GameManager.Instance.GameOverProcess();
             base.HandleOnDead();
         }

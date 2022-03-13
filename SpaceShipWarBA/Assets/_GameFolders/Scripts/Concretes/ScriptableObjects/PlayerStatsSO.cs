@@ -16,9 +16,13 @@ namespace SpaceShipWarBa.ScriptableObjects
         [SerializeField] float _verticalUpBorder = 1f;
         [SerializeField] float _verticalDownBorder = -5f;
 
+        [Header("Sounds")] 
+        [SerializeField] AudioClip _laserSound;
+
         public float HorizontalBorder => _horizontalBorder;
         public float VerticalUpBorder => _verticalUpBorder;
         public float VerticalDownBorder => _verticalDownBorder;
         public Sprite[] Sprites => _sprites;
+        public AudioClip LaserSound => _laserSound;
     }
 }

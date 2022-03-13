@@ -10,7 +10,6 @@ namespace SpaceShipWarBa.Abstracts.Controllers
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class BaseCharacterController : MonoBehaviour
     {
-        
         protected IDying _dying;
         protected float _currentAttackTime = 0f;
 

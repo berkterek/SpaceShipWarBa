@@ -46,6 +46,7 @@ namespace SpaceShipWarBa.Controllers
 
         protected override void FireProcess()
         {
+            //TODO fire sound
             _currentAttackTime += Time.deltaTime;
             if (_currentAttackTime > _currentDelayTime)
             {
@@ -63,6 +64,7 @@ namespace SpaceShipWarBa.Controllers
 
         protected override void HandleOnDead()
         {
+            //TODO dead sound
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.SetScore(_stats.ScoreValue);    
