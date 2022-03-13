@@ -66,11 +66,12 @@ namespace SpaceShipWarBa.Controllers
 
         protected override void HandleOnDead()
         {
-            //TODO dead sound
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.SetScore(_stats.ScoreValue);    
             }
+            
+            AudioSource.PlayClipAtPoint(_stats.DeadSound,transform.position);
             
             base.HandleOnDead();
         }

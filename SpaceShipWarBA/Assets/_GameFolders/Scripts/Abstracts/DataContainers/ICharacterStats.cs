@@ -9,5 +9,6 @@ namespace SpaceShipWarBa.Abstracts.DataContainers
         int MaxDamage { get; }
         float FireRate { get; }
         AudioClip LaserSound { get; }
+        public AudioClip DeadSound { get; }
     }
 }
