@@ -73,15 +73,20 @@ namespace SpaceShipWarBa.Managers
 
         public void LoadGameScene()
         {
-            StartCoroutine(LoadGameSceneAsync());
+            StartCoroutine(LoadSceneAsync("Game"));
+        }
+        
+        public void LoadMenuScene()
+        {
+            StartCoroutine(LoadSceneAsync("Menu"));
         }
 
-        private IEnumerator LoadGameSceneAsync()
+        private IEnumerator LoadSceneAsync(string sceneName)
         {
             //bu normal bir method'tur ve bu method calisipt bitmeden diger yapialr calismaz
             //SceneManager.LoadScene("Game");
             
-            yield return SceneManager.LoadSceneAsync("Game"); //async await mantigi
+            yield return SceneManager.LoadSceneAsync(sceneName); //async await mantigi
         }
 
         #region Normal Method ile Asnyc ve Coroutine Methodlar arasindaki farklar

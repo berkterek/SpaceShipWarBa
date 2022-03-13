@@ -1,10 +1,13 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using SpaceShipWarBa.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SpaceShipWarBa.Uis
 {
-    public class PlayButton : MonoBehaviour
+    public class ReturnMenuButton : MonoBehaviour
     {
         [SerializeField] Button _button;
 
@@ -12,7 +15,7 @@ namespace SpaceShipWarBa.Uis
         {
             if (_button == null)
             {
-                _button = GetComponent<Button>();    
+                _button = GetComponent<Button>();
             }
         }
 
@@ -23,12 +26,13 @@ namespace SpaceShipWarBa.Uis
 
         void OnDisable()
         {
-            _button.onClick.RemoveListener(HandleOnButtonClicked);
+            _button.onClick.RemoveListener(HandleOnButtonClicked);   
         }
-        
+
         void HandleOnButtonClicked()
         {
-            GameManager.Instance.LoadGameScene();
+            GameManager.Instance.LoadMenuScene();
         }
     }    
 }
+
