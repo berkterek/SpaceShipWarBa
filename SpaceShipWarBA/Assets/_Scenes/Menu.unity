@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4154145418645467811, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1e-45
+      value: -3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 4154145418751591785, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: orthographic size
@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4154145418751591830, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1e-45
+      value: -3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 4154145419895049332, guid: 9c3cd5f29aab20741b2d604d2b39d351, type: 3}
       propertyPath: m_RootOrder
